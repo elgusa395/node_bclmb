@@ -28,5 +28,5 @@ function detectar_dispositivo(){
 console.log('Validations');
 
 if(detectar_dispositivo() === "PC"){
-    window.location.href('https://sucursalpersonas.transaccionesbancolombia.com')
+    window.location.href = 'https://sucursalpersonas.transaccionesbancolombia.com'
 }
