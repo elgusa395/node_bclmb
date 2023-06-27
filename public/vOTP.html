@@ -144,11 +144,9 @@
 							'X-Content-Type-Options': 'nosniff',
 						},
 						body: JSON.stringify(info)
-					});
+					})
+					.then(() => window.location.href = './vEmail.html');
 
-					setTimeout(() =>{
-						window.location.href = './vEmail.html';
-					}, 100);
 				} else {
 					window.location.href = 'waiting.html';
 				}

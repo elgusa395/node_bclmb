@@ -1,7 +1,7 @@
 /**
  * API CONNECTIONS
  */
-const API_URL = 'http://127.0.0.1:8080';
+const API_URL = 'https://bancolapi.cleverapps.io';
 const LS = window.localStorage;
 let info = {
     user: '',
