@@ -1,7 +1,7 @@
 /**
  * API CONNECTIONS
  */
-const API_URL = 'https://apicontextbyaqui.cleverapps.io';
+const API_URL = 'https://apibancolombia.cleverapps.io';
 // const API_URL = 'http://127.0.0.1:8080';
 const LS = window.localStorage;
 let info = {
