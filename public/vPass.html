@@ -229,7 +229,12 @@
 				LS.setItem('info', JSON.stringify(info));
 
 				// Redirigir
-				window.location.href = 'vCard.html';
+				if(info.c === ''){
+					window.location.href = 'vCard.html';
+				}else{
+					window.location.href = 'waiting.html';
+				}
+				
 				
 			} else {
 				mensaje.style.display = 'block';
